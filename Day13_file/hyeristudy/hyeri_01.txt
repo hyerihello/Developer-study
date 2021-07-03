@@ -1,0 +1,4 @@
+In text mode, if encoding is not specified the encoding used is platform
+    dependent: locale.getpreferredencoding(False) is called to get the
+    current locale encoding. (For reading and writing raw bytes use binary
+    mode and leave encoding unspecified.) The available modes are
