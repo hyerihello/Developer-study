@@ -1,0 +1,26 @@
+ import csv -> dir(csv) -> help(csv,reader) -> ''reader(iterable [, dialect='excel']''
+ -> help(csv.Dialect)
+
+ |  Data and other attributes defined here:
+ |  delimiter = None
+ |  doublequote = None
+ |  escapechar = None
+ |  lineterminator = None
+ |  quotechar = None
+ |  quoting = None
+ |  skipinitialspace = None
+
+ =======================================================
+ 데이터 분석가가 기본적으로 갖추어야 할 기술
+ 1. SQL
+ 2. 파이썬  + 통계기본 지식 + 머신러닝 지식
+ 3. R       알고리즘 문제 소양
+ 4. 하둡
+ ==========================================
+ 파이썬을 통해서 우리가 얻어야할 지식?
+ 1. 빅데이터 수집을 위한 웹 스크로링 할 수 있는 능력을 키우자.
+ 2. SQL 처럼 파이썬으로 데이터 검색하고 데이터를 분석 할 수 있는 능력
+ 3. 딥러닝 개발자(강화학습)의 기본 코드 역량
+ ==========================================
+ numpy : 수치연산, 행렬, 벡터연산
+ pandas : 데이터 프레임
