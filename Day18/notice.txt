@@ -1,0 +1,29 @@
+1. 웹의 개념을 이해하고 기술 할 수 있다.
+2. 웹 수집 연동을 구현할 수 있다.
+====================================================
+데이터 분석순서
+데이터 수집 -> 데이터 유형 및 속성 파악 -> 데이터변환
+-> 데이터저장 -> 데이터정제 -> 분석단계
+
+데이터 수집 기술 (웹 스크롤링 기술)
+
+html api : http://www.w3.org
+html이란 ? Hyper Text Markup Language의 약자이고
+여러개의 태그를(tag)연결해서 모아놓은 순서 http://www.w3schools.com/ 연습용사이트
+
+웹페이지
+동적페이지 : 클라이언트가 입력한 값을 처리해주는 페이지 (게시판, 방명록, 회원가입, 장바구니)
+            asp, aspx, php, jsp등
+정적페이지 ; 클라이언트가 입력한 값을 처리할 수 없는 페이지 .html
+was (Web Application Server) = Tomcat (+java) = jsp/servlet
+ex) Test \ a.html
+    Test \ a.jsp
+    http://ip:port/Test/a.html
+    http://ip:port/Test/a.jsp
+
+  ====================================
+  beautiful soup 모듈
+  : 파이썬 코드를 복잡하게 작성하지 않아도 편하게 웹 크롤링을 할 수 있도록 여러가지
+  함수를 제공하는 모듈
+
+  from bs4 import Beautifulsoup
