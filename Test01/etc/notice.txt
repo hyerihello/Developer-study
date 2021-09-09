@@ -1,0 +1,42 @@
+ 210622
+ 
+ 1. 파일이름.java -> javac 파일이름.java -> 파일이름.class
+ 2. 자바의 실행단위는 class이다.
+ 3. 자바의 접근제한자.
+   public -> protected(상속시) -> private -> default(같은패키지안에서 공개)
+   
+ 4. 클래스명, 메소드명, 멤버 변수 앞에 선언된다. (접근제한자)
+ 5. static, abstract 등도 접근제한자와 함께 선언된다.
+ 
+ 6. 기본자료형 (byte, short, int, long, float, double, char, boolean)
+ /   참조형(배열, 클래스)
+ 
+ // 기본자료형 -> 제어문 -> 배열 -> 메소드 및 클래스 -> 상속 -> 추상화 -> 다형성
+ 
+   ex) System.out.println("Ex01's method");
+   
+		 public class PrintStream {
+		    public void println(String str){
+		   }
+		  }
+	
+	== PrintStream System.out = new PrintStream();
+	   System.out.println();
+	   
+
+	   
+자바 - 기본자료형, 참조형이 나눠져있다. 
+매서드안에는 선언하는 변수 - 지역변수
+클래스 안에 선언하는 변수는 - 전역번수 
+
+
+>> public static final PrintStream out(상수)
+	final -> 클래스 앞(상속 x), 메소드 앞(재정의 x), 변수 앞(변수를 상수로)
+	
+println : 오버로드 (객체x)
+
+//public PrintStream printf(String format,
+                          Object... args)
+//%[flags][width]conversion
+	
+	
