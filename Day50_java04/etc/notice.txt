@@ -1,0 +1,37 @@
+Serializable : 직렬화된 내용, 
+
+Calender : 추상클래스 , 기본생성자 () 안에 없는것, new 생성불가
+- 그레고리안 e클래스 생성 또는 calender 상속 받거나 둘중 하나
+
+프로텍티드 : 상속시퍼블릭처럼 호출해라, 다른패키지에 호출이불가능하다
+
+
+클래스 :   생성자유무, 해당클래스가 어떤클래스인지 확인해야한다.
+
+** integer class (lang pakage)
+
+ 기본생성자 없음, final  class, 내포 class + string class 
+ 문자 chr, 문자열 string 
+ jar파일 (class -> pakage -> jar) 실행
+ 오버르드생성자 (int, string (문자열에 있는 정수를 int로 파싱))
+ 
+  = number의 자식이기때문에 float, Double 모두 String s 생성자 가지고있음
+  
+  object : 모든 class의 super class
+   - ex) to stirng -> 재정의가능
+    		random -> 재정의불가
+    		
+  ================================
+  
+  		// == 주소 비교 연산자 (재정의 불가)
+		// new Car("bm7") == new Car("bm7")
+		// = new Car("bm7").toString() == new Car("bm7").toString() - 재정의 가능,
+		// - 재정의 하지않을때는 주소 비교연산자이다. 
+		
+ =================================
+	Class String  = 
+	 String str = "abc";  string class는 주소를 참조한다.
+	 string : 모든메소드가 변환한것을 그대로 리턴하는것
+	 burffer,builder 은 스스로 crud가된다.
+	 
+	 
