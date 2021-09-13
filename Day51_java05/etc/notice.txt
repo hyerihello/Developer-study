@@ -1,0 +1,112 @@
+ 1. Object 재정의에 대한 개념을 이해할 수 있다.
+ 2. 추상클래스와 인터 페이스를 상속 받아 추상 메소드를 구현할 수 있다.
+ 3. GUI를 이용한 다형성 구현을 이해할 수 있다.
+ 4. 자바의 파일 입출력을 구현할 수 있다. 
+  == 파일 입출력, 컬렉션, 스레드, 네트워크 
+  
+  
+  object class
+  유저가만든 객체를 관리하기 위해 만들어진 class 이다.
+  
+  - equl
+  - finalize : 객체가 소멸될 때 호출되기로 한 메소드 
+    garbage collection : 사용하지 데이터를 램에서 제거할 수 있는 작업을 자동화 한 것 
+     inner로 되어있거나, 현재 객체를 소멸못하면 old로 간다.
+     객체를 소멸하면 eden 영역으로 간다. 
+     
+    hide(화면에서 숨겨짐) 메서드 -> destroy(부모는 살아있는데 자식은 숨김, java는 없음) -> 
+      finalize (현재 내가가지고 있는 객체가 닫아짐) -> close(주소소멸) : 메모리를 내리는 순서
+    
+    - 모든 oop구조의 최상위 클래스 
+    - wait, notify 매서드 : 현재 실행상태를 나타내는 구조 (*중요)
+    
+    내가만든 class를 실행하고싶다.
+     thread : 다중, 단일 
+     - 메모리를 할당받아 실행 중인 프로그램을 프로세스라고 합니다.
+- 프로세스 내의 명령어 블록으로 시작점과 종료점을 가진다.
+- 실행중에 멈출 수 있으며 동시에 수행 가능하다.
+- 어떠한 프로그램내에서 특히 프로세스 내에서 실행되는 흐름의 단위.
+
+    - thread.runnable : 메인에서 쓰던거를 run에 쓰면된다. run매서드도 확인해보자. (*runnable 을 이용해 상태확인)
+    - class를 thread 만들면서 wait, notify를 통해 실행상태를 확인한다.
+    - 하나의 프로그램에 여러 thread 가 존재할 수있다.
+    - web이면 was가 thread 역할을 한다.
+    
+      
+  io.package (class에서 할수 있는 명령을 모아놓은집합)
+   : stream(입출력 단위가 byte), Reader, Writer
+   
+    File
+    - 오버로드 생성자 : path
+    - 매서드 : finalize 로 파일 닫는다
+    
+    BufferedInputStream : 글자를  어떤 대상에서 읽어들이는데 byte단위로 버퍼에 넣어 읽겠다. 
+    - Reads the next byte of data
+        (Output : 쓰다)
+    - close : 무조건 close 써야한다, close를 상속하기때문에 finalize가 있다.
+    - object, 파일객체, db객체  try catch final에 close 무조건 명시한다.
+    
+    
+    인터페이스 
+     : .java로 저장된다 실행단위는 .class 문법은 추상클래스와 같다. 
+     
+      new 연산자 => 인터페이스 , 추상클래스 사용할 수 없다. 
+      			  주소번지는 사용할 수 있다.
+ 
+ 
+ public abstract Abstract_aa {
+ 	public abstract void test ();
+ 	}
+ 		
+      Abstract_aa a1 = new My(); // new Abstract_aa() -> new My() : 가능한 case
+      public static void prn(new new Abstract_aa(){//재정의의 목적
+      						// 재정의 코드작성
+      					}){} : 위의 문법이 가능하기 떄문에 실행 가능하다.
+      					
+   호출을 해보자.
+   		prn(new My()); 
+      
+      
+      			  
+      math - static, 생성자가 없음(생성자가 private), 후손도 없음 (final)
+      calendar - 스스로 초기화하는 get인스턴스를 제공했으니 따로 생성자가 필요없다.
+                  Calendar rightNow = Calendar.getInstance();
+     
+     
+     
+    2. 추상클래스와 인터 페이스를 상속 받아 추상 메소드를 구현할 수 있다.
+    
+    동적바인딩 ! 
+    
+    선조의 주소번지를 통해서 다양한 후손을 메모리에 올려 선택적으로 사용한다.
+    downcasting 알아두자.
+    
+    
+    Class Throwable 
+	    : jvm 프로그램실행중단 -> 내부적으로 가장먼저 생성됨
+	    
+	    Direct Known Subclasses:
+		Error, Exception : 하위클래스 객체생성해서 실행시점으로 돌려줌
+	    
+	    파이썬에서 봤던 메서드를 확인할 수있다. 
+	    exception  (checked, unchecked) 
+	    
+	     : Class RuntimeException (실행시에 나타나는)
+	       자주 등장하는 exception :  ArithmeticException, IllegalArgumentException, NullPointerException, IndexOutOfBoundsException
+        
+        ex) integer -> parseInt 매서드 -> NumberFormatException // c:\\ Test03 참고
+        
+        
+ 
+   3. GUI를 이용한 다형성 구현을 이해할 수 있다.      
+   
+   	 자바 gui : 2d, 3d
+   	 
+   	 Class Frame
+	java.lang.Object
+		java.awt.Component
+			java.awt.Container
+				java.awt.Window
+					java.awt.Frame
+
+
