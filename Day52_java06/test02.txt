@@ -1,0 +1,6 @@
+abcdefg
+111111
+abcdefggggg
+   10    20    30 
+   10    20    30 
+abcdef 오늘은 수요일

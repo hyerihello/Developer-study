@@ -1,0 +1,27 @@
+object : 
+
+1. 자바의 파일 입출력을 구현 할 수 있다.
+2. GUI를 이용한 다형성 구현을 이해할 수 있다.
+3. 컬렉션을 구현하고 이해할 수 있다. 
+== 파일 입출력, 컬렉션, 스레드, 네트워크
+
+
+ 자바의 파일 입출력
+ 1. java.io : 운영체제 내의 기본 탐색기에서 이루어지는 모든 기능을(입출력관련) 클래스로 만들어 놓은 패키지.
+ 			  byte (1byte) 단위 입출력 : 이미지, 영상, 소리등의 파일을 입출력할때 사용 (1bit(0,1) * 8 = 8bit = 1byte
+ 			  char (2byte) 문자단위 입출력 : 한문자 단위 및 char[] <-> String(class단위)
+ 			  객체 단위 입출력 : .class 단위로 입출력 할때 사용
+ 			  
+ 			  
+ 			  파일과 디렉토리를 관리하는 클래스 : File =  C createNewFile()
+ 			  									R setReadable(boolean readable)
+ 			  									U renameTo(File dest)
+ 			  									D delete()
+ 			  							 Dir = CRUD
+ 			  		
+ 			  		
+ 			  stream 이 붙어있는 애들은 read, write 가 byte단위로 리턴
+ 			  stream 이 없는 애들은 				     char 리턴 2byte
+ 			  f.write, f.reader - char단위로 리턴 
+ 			  
+ 2. java.nio
