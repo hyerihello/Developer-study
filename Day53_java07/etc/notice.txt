@@ -1,0 +1,15 @@
+ 1. GUI를 연동할 수 있다.
+ 2. Collection의 개념을 이해하고 기술할 수 있다.
+ (자바에서 데이터의 자료관리를 구현할 수 있다)
+
+
+List : 자료의 데이터를 인덱스로 관리한다. 중복데이터 허용가능, null 허용 /ArrayList, Vector
+Set	: 값으로 데이터를 관리한다. 중복데이터 허용 불가능 /HashSet
+Map	: 키와 값으로 데이터가 저장되고 키로 데이터를 관리한다. key는 중복값 불가능 /Hasehmap
+ 
+ collection 객체의 특징
+ 원하는 객체를 crud 할 수 있다.
+ 동적으로 데이터를 관리한다.
+ 정해진 크기가 없다
+ 
+ awt 할떄는 visual component 가 있다. 
