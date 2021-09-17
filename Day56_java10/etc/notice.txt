@@ -1,0 +1,225 @@
+1. 리눅스 명령어를 수행할 수 있다.(cmd명령, 디렉토리, 파일조작)
+2. 프로그램을 설치할 수 있다. (환경설정, 네트워크, 설정파일)
+3. 하둡을 설치해보자. (공개키, 머신복제, 클러스터, 네트워크 설정, 링크지정)
+
+
+yum install update
+yum install kenel*
+yum install gcc 
+
+리눅스에서 명령을 확인할 때는 man이라는 명령을 사용한다.
+# man --help : 도움말
+
+# which yum
+
+--k: 모든 내용검색
+--w: 페이지 검색
+--s: 섹션 검색
+
+# man ls : 경로내용 나열, 목록보기
+# man man : 가이드 
+
+etc 파일을 살펴보자.
+/ 밑에있는 애들은 손대지 않는다!
+ .sh : 실행하는것 (배치파일처럼)
+ bashrc, environment, profile : 전역변수 설치
+  // 데스크탑이면 전역변수 걸지마라 (무한루프돈다)
+  
+  
+설치된 파일을 찾고싶을때 
+[hadoop01@localhost user]$ whereis java - java.exe는 어디 어디 있어?)
+
+실행파일을 찾고 싶을때 (전역패스로 지정된 실행파일 위치 - java.exe는 어디서실행되니?)
+[hadoop01@localhost user]$ which java
+
+리눅스의 설정 파일
+
+1./etc/envifonment 파일에서 명령을 실행하여 시스템 환경을 설정한 후 ./etc/profile 파일에 있는 명령을 평가한다.
+
+2. 사용자의 홈 디렉토리에 .profile 파일이 있는지 확인 .profile 파일이 있으면, 시스템은 이 파일을 실행하면 환경 파일의 
+ 존재 여부를 작성한다. 즉(일반적으로 .env인) 환경 파일이 있으면, 시스템은 이 파일을 실행하고 사용자 환경 변수를 설정한다.
+
+3. /etc/environment,/etc/profile 및 .profile 파일은 로그인 시 한번만 실행 되지만, .env파일은 사용자가 새로운 쉘이나 창을 열때마다 실행된다.
+
+4. /etc/environment : 모든 프로세스에 대해 기본 환경을 지정하는 변수를 정의한다.
+로그인시 .profile이라는 로그인 프로파일을 읽기전에 시스템은 /etc/environment 파일에서 환경변수를 설정한다.
+
+5. /etc/profile 파일 : 시스템 관리자만이 수정할 수 있으며, 시스템 차원의 default 변수를 제어한다.
+(변수 반출/ 파일작성 마스크(umask) / 터미널 유형/ 새로운 메일이 도착했음을 알리는 메일 메시지/ 시스템 관리자는 모든 사용자가 사용하는 환경 변수등을 /etc/profile 파일에 작성한다.
+
+6. 사용자 홈 디렉터리에 존재하며 이 파일을 통해 사용자 개인의 작업 환경을 조정할 수 있다.
+.profile 파일이 있으면 이 파일의 명령이 실행된다.
+
+7. .env 파일을 통해 사용자 개인의 작업 환경 변수를 조정할 수 있다. 사용자는 .env 파일을 수정하여 원하는 사용자 환경 변수를 지정할 수 있다.
+
+==============================================================
+디렉토리 명령
+
+	pwd: 현재 위치 경로를 리턴
+	cd : 디렉토리 이동
+	cd .. : 상위 디렉토리
+	cd ~ : 자신의 홈 디렉토리 
+	cd ~[사용자명]: 사용자 명의 홈 디렉토리로 이동
+	
+	ls : 목록보기
+	ls -al:숨김파일을 포함해서 자세히 출력한다. 
+	mkdir[디렉토리명]:디렉토리생성
+	rmdir : 디렉토리삭제
+	rmdir -p: 상위 경로까지 삭제 
+	rmdir -r 디렉토리명 : 하위 까지 삭제
+	
+ ex01) hadoop01의 홈 디렉토리로 이동해보자. test파일도 만들자
+  - 루트계정에서 
+		[root@localhost 바탕화면]# cd ~hadoop01
+		[root@localhost hadoop01]# pwd
+		/home/hadoop01
+		[root@localhost hadoop01]# mkdir test
+		[root@localhost hadoop01]# cd /home/hadoop01/test/
+		[root@localhost test]# ^C
+		[root@localhost test]#
+		
+=====================================================
+
+파일 관련 명령
+ touch [파일명] : 파일생성 - man touch
+ cp [원본][사본] : 복사본 man cp
+ mv[원본][대상지] man mv
+ rm 파일명 : 파일삭제 man rm
+ rm -rf 파일/디렉토리 : 파일은 그냥 삭제, 디렉토리일 경우에는 하위의 파일까지 모두 지운다.
+ cat[파일] : 파일 내용을 출력한다. 
+ 
+ ex02) /home/hadoop01/test에서 myfile.txt라는 파일을 생성하자. 
+ 	 [root@localhost test]# touch myfile.txt
+ 	 
+ ex03) test목록을 확인하자.
+ 	[root@localhost test]# ls
+ 	
+ ex04) /home/hadoop01/test02 폴더를 만들자.
+  [root@localhost test]# mkdir ~hadoop01/test02
+ 
+ ex05) myfile.txt를 test02로  myres.txt로 복사하자.
+ [root@localhost test]# cp ~hadoop01/test/myfile.txt ~hadoop01/test02/myres.txt
+ 
+ ex06) myres.txt test폴더로 이동하자.
+ [root@localhost test02]# mv ~hadoop01/test02/myres.txt ~hadoop01/test/
+ 
+ ex07) test폴더를 파일 포함 삭제하자.
+ [root@localhost test02]# rm -rf ~hadoop01/test/
+ 
+ ex08) test02/myfile.txt만 삭제하자. 
+ [root@localhost test02] rm ~hadoop01.test02/myfile.txt'?y
+ rm : remove 일반 빈파일 '/home/hadoop01/test02/myfile.txt'?y
+ 
+ ex09) 파일을 생성해보자. 
+ [root@localhost test02] # touch a.txt, b.txt
+ [root@localhost test02]#ls ~al //,로 사용하면 탐색 불가하다
+ 
+ ===========================================
+ [명령어] > [파일] : 명령어의 출력을 파일에 저장한다. 덮어쓴다.
+ [명령어] >> [파일] : 명령어의 출력을 파일에 저장한다 추가한다.
+ [명령어] < [파일] : 파일에서 표준 입력받는다. 
+  
+  ex) 
+  
+  1.파일을 생성해보자
+  cat>b.txt
+  abcde
+  abcde
+  
+  빠져나오기 ctrl+d
+  
+  2. 확인해보자.
+  cat b.txt
+  
+  3. 데이터 추가해보자 
+  cat >>b.txt
+  aaaaabbbbb
+  
+  4. 설정파일을 하나 열어보자.
+  cat /etc/passwd 
+  
+  5. grep 명령과 옵션을 찾아보자. 
+  cat /etc/passwd|grep hadoop01
+  
+  6. yum list | grep jdk,ps
+   grep : 파일 또는 입력 값 내에서 특정 패턴을 검색할 때 사용한다.
+   
+  
+==============================================
+새계정 생성 
+시스템 -> 관리 -> 사용자및 그룹 -> 사용자추가 
+
+==============================================
+find : 현재 디렉토리에 있는 목록을 보여준다.
+find / -name *linux* :linux가 파일명에 포함된 모든 파일을 찾아준다.
+find / -user linux : 소유자가 linux인 파일을 찾아준다.
+find / -perm 755: 퍼미션이 755인애를 찾아준다.
+
+ 7. hadoop01 인 소유자가 가진 파일을 찾아라.
+ find / -user hadoop01
+  
+  cat은 파일 안에 내용을 쓸떄??
+  
+ 8. grep 의 옵션
+  A 숫자 : 지정숫자 아래 
+  B 숫자 : 지정숫자 위 
+  C : 라인포함
+  i : 대소문자무시
+  n : 라인번호 출력
+ 
+ cat > mytest
+apple
+strawberry
+watermelon
+mandarin
+pear
+apricot
+
+9. 귤을 포함한 아래 2개의 과일을 찾아라
+grep -A 2 mandarin mytest
+
+10. 수박을 포함한 위1 개의 과일을 찾아라
+
+11. r자가 들어간 과일을 찾아라
+
+12. s가 들어간 과일을 찾아라
+
+13. 과일 철자를 기준으로 정렬해라 sort
+
+14. 숫자를 기준으로 역순으로 정렬해라 
+ 
+ 
+ cat > mytest
+1.apple
+2.strawberry
+3.watermelon
+4.banana
+5.pear
+6.apricot
+ex09) 배를  포함한 아래 2개의 과일을 찾아라
+[root@localhost test02]# grep -A 2 watermelon mytest
+3.watermelon
+4.banana
+5.pear
+ex10) 수박을 포함한 위 1개의 과일을 찾아라
+ grep -B 1 watermelon mytest
+2.strawberry
+3.watermelon
+ex11) r자가 들어간 과일을 찾아라
+grep -i r mytest
+ex12) s자가 들어간 과일을 찾아라.
+grep -i s mytest
+ex13) 과일을 철자를 기준으로 오름차순 정렬해라. sort
+[root@localhost test02]# sort -t"." -k 2 mytest
+ex14) 숫자를 기준으로 역순으로 내림차순 정렬해라
+[root@localhost test02]# sort -r mytest
+6.apricot
+5.pear
+4.banana
+3.watermelon
+2.strawberry
+1.apple
+
+
+================================================
+15 리눅스용 자바 1,8 파일의 위치를 찾아놓기 
