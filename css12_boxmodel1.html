@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+/*
+	 width, height 속성(property)은 요소의(content)의 사이즈를 저장하는 속성
+	 즉 가로, 세로 사이즈는 컨텐츠 영역을 대상으로 지정되는 속성이다.
+	
+	 box-model은 그래서 
+	 content, padding, border를 이해하는 개념이다.
+	 
+	 >> box-sizing: content-box;
+	 box-sizing property 기본값은 "content-box"이다.
+	 이말은 width, height 대상 영역이 content를 의미한다.
+	 
+	 box-sizing 속성을 가지고우리는 width, height 대상영역을 변경할 수 있다.
+	 
+	 >> box-sizing: border-box;
+	 border-box 값으로 지정하면 대상영역이 box model이 되어서
+	 css layout을 지정하기 border-box가 더 직관적이다.
+	 
+	 content-box :: width, height 속성값은 content 영역을 의미한다. (기본값)
+	 border-box :: width, height 속성값은 content, padding, border 가 모두 포함된 영역을 의미한다.
+*/
+
+
+	#model1{
+		background-color: lightgray;
+		width: 300px;
+		padding: 25px;
+		border: 25px solid navy;
+		margin:25px;
+		/* box model은 300 + 25*2 + 25*2 = 400 크기를 가지고 있다. */
+		/* box-sizing: content-box; */	
+		box-sizing: border-box;
+	}
+	
+	#model2{
+		width: 300px;
+		height: 100px;
+		background-color: cornsilk;
+		border: 5px solid navy;
+		overflow: hidden;
+	}
+
+</style>
+</head>
+<body>
+  <h2>Box Model 1.</h2>
+  <div id="model1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+
+  <h2>Box Model 2.</h2>
+  <div id="model2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+</body>
+</html>

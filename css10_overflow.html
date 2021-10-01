@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style type="text/css">
+	/* 공통적인 속성 */
+	.box{
+		/* 정사각형 */
+		width:150px; 
+		height:150px;
+		background: #cccccc;
+		/* 가로로 나란히 정렬 및 공간 주기 */
+		float:left;
+		margin-right: 10px;
+	}
+	
+	/* box를 각각의 특성주기*/
+	.vi{ overflow: visible;}
+	.hi{ overflow: hidden;}
+	.sc{ overflow: scroll;}
+	.au{ overflow: auto;}
+	
+	div.vi>h3{color: red;} /* 직계자손 */
+	.vi h3 {color:red;}/* 직계자식이 아닌 후손의 개념 , 직계와 후손 모두다 적용 */
+	
+</style>
+</head>
+
+<!-- 
+	공통적인 속성 지정 :: class 사용 
+	차별적인 속성 지정 :: vi, hi, sc, au 같은 선택자를 사용
+-->
+<body>
+ 	<div class="box vi">
+      <h3>visible</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec mollis nulla. Phasellus lacinia tempus mauris eu laoreet.</p>
+    </div>
+    <div class="box hi">
+      <h3>hidden</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec mollis nulla. Phasellus lacinia tempus mauris eu laoreet.</p>
+    </div>
+    <div class="box sc">
+      <h3>scroll</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec mollis nulla. Phasellus lacinia tempus mauris eu laoreet.</p>
+    </div>
+    <div class="box au">
+      <h3>auto</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec mollis nulla. Phasellus lacinia tempus mauris eu laoreet.</p>
+    </div>
+    
+     <div class="box vi">
+      <h3>visible</h3>
+      <div>
+      	<h3>후손입니다</h3>
+      </div>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec mollis nulla. Phasellus lacinia tempus mauris eu laoreet.</p>
+    </div>
+    
+</body>
+</html>

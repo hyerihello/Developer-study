@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	#box{display: none;} /* box 즉 div가 없는것 처럼 보임*/
+	#box{display: block;} /* box 즉 div는 원래 blocking tag이기 때문에 변하지 않음*/
+	#box{display: inline; /* box 즉 div가 inline tag 처럼 실행, 옆으로 나란히 출력*/
+		background-color: yellow;
+		width:60px;} /* width는 적용되지 않음 inline 기본값으로 설정되기 때문 */
+	#box{display: inline-block; /**/
+		background-color:green;
+		width:60px; /* inline-block 은 inline 과 비슷하나 너비와 높이를 지정할 수 있다.*/
+		height:30px;}  
+		 
+</style>
+</head>
+<body>
+<!-- span :: inline tag, 나란히 출력된다 -->
+<span>Dummy</span>
+<!-- div :: blocking tag, 위-아래로 출력된다. -->
+<div id="box">
+	<span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</span>
+</div>
+<span>Dummy</span>
+
+</body>
+</html>

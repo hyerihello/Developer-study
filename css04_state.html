@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	/* 1. 속성에 대한 선택자 지정 (오리지널)*/
+	input[required=required]{  /* [속성이름 = 속성값] */
+		background: red;
+	}
+	
+	/* 2. 속성에 대한 선택자 지정 (심플)*/
+	input:required {background: yellow;}
+	input:disabled {background: gray;}
+	
+</style>
+</head>
+<body>
+<!-- 1. 폼 양식 활성화 관련된 속성과 
+	 2. 태그의 속성 부분을 선택자로 지정하는 방법 -->
+<h2>State Attribute</h2>
+<form action="#">
+	<h3>Enabled</h3>
+	<input /> <!-- 입력가능 -->
+	
+	<h3>Enabled</h3>
+	<input disabled="disabled"/> <!-- 비활성화 -->
+	
+	<h3>Enabled</h3>
+	<input readonly="readonly" value="hyeri"/> <!-- 값 수정 불가  -->
+	
+	<h3>Enabled</h3>
+	<input required="required" placeholder="암호를 입력하세요"/> <!-- SEND 버튼 생성시 form에 action을 줘야한다.  -->
+	<input type="submit" value="SEND">
+</form>
+</body>
+</html>

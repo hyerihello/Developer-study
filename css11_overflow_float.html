@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	#wrap{
+		border:1px solid black;
+		padding:10px;
+		overflow:hidden;
+	}
+	#a{
+		border: 1px solid red;
+		margin: 0px;
+		/* 
+		div 태그의 자식요소(a태그)에서 float 속성 사용시
+		부모요소의 범위를 벗어나게 된다.
+			1. 부모 요소 범위를 크게 잡아 버린다.
+			2. 이럴때 해결책은 overflow:hidden을 준다 --> 부모 요소에 지정해버린다.
+		*/
+		float:left;
+	}
+	
+	#b{
+		border: 1px solid green;
+		margin: 0px;
+		float:left;
+	}
+</style>
+</head>
+<body>
+<!-- 상위 태그에 묶여있는 div -->
+<div id="wrap">
+	<div id="a">
+	hyeri
+	</div>
+</div>
+	
+<div id="b">
+	Hello
+</div>
+
+</body>
+</html>
