@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type ="text/css">
+		#firstDiv{
+			margin-left:20%;
+			margin-right:20%;
+		}
+		
+		#secondDiv{
+			width:30%; /*정중앙에 위치하게 하려면 width가 중요함, 그래서 먼저 입력시켜야함*/
+			margin:0 auto;
+			padding-top: 50px;
+		}
+</style>
+
+
+<script type = "text/javascript">
+	function push(){
+		alert("버튼 클릭했음!")
+	}
+	
+</script>
+</head>
+<body>
+<div id = "firstDiv">
+<form action="MFS" method="post">
+	<fieldset>
+		<legend>Movie Schedule</legend>
+		영화제목 <input type = "text" name = "title"><br/><br/>
+			
+		<label>스케줄선택</label>
+		<input type = "date" name = "time"><br/><br/>
+		
+		<label>성별</label>
+		<input type = "radio" name = "gender" value="F">Female
+		<input type = "radio" name = "gender" value="M">Male<br/><br/>
+		
+		
+		<label>인원수</label>
+		<input type = "number" name = "number"><br/><br/>
+		
+		
+		<label>드시고 싶은 스낵류를 있는대로 고르세요</label><br/>
+		<input type = "checkbox" name = "menu" value="팝콘">팝콘<br/>
+		<input type = "checkbox" name = "menu" value="콜라">콜라<br/>
+		<input type = "checkbox" name = "menu" value="사이다">사이다<br/>
+		<input type = "checkbox" name = "menu" value="오징어">오징어<br/>
+		<input type = "checkbox" name = "menu" value="핫바">핫바<br/><br/><br/>
+	
+		<textarea rows="10" cols="100">
+		엔코아 상영관을 찾아주셔서 감사합니다.
+		불편한 사항을 이곳에 기입해 주시기 바랍니다.
+		</textarea><br/><br/><br/>
+		<input type="submit" value="dataset">
+	</fieldset>
+	</form>
+</div>
+<div id = "secondDiv">
+	<fieldset>
+		<legend>Basic Form Test</legend>
+		<form action = "MFS"> <!-- default :: get -->
+		ID <input type = "text" name="username"><br/>
+		PASS <input type="password" name="userPass"><br/>
+		<input type="submit" value = "SEND"> <!-- form 안의 모든 값들을 가지고 action에 보냄 -->
+		<input type="reset" value = "CLEAR"> <!-- form 안의 모든 값들을 초기화 -->
+		<input type="button" value = "CLICK" onclick = "push()"> <!-- 이벤트처리 = javascript랑연결됨 -->
+		</form>
+	</fieldset>
+
+</div>
+</body>
+</html>
