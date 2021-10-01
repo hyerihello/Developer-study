@@ -1,0 +1,20 @@
+h2{
+	color:orange;
+	font-family: 궁서체;
+	font-style: oblique;
+	font-size:25pt;
+}
+
+/*p 태그를 선택자로 지정
+ID는 한요소에만 사용, CLASS는 여러요소에 중복사용가능한 스타일 정의법*/
+
+/* .은 class, #은 id */
+.phara{
+	font-size: 25pt;
+	color:purple;
+	font-family: cursive;
+}
+#ptag2{
+	font-size: 20pt;
+	background-color: gray;		
+}
