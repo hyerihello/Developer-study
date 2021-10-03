@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script> <!-- 비동기 -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+ 
+  
+<!-- 
+
+  Bootstrap은 반응형으로 사용할 때 html 요소들을 둘러싸는 기본 클래스로 container를 제공한다.
+  
+  * container | container-fluid 
+  container :: 고정폭을 지정해서 레이아웃을 만들 떄 사용된다.
+  container-fluid :: 고정폭을 지정하지 않고 전체 화면을 좌우로 꽉 채워서 레이아웃을 만들때 사용된다.
+  
+-->
+  
+ 
+<div class="container">
+	<div class="jumbotron text-center"> <!-- 외부 css :: jquery.min.js -->
+	  <h1>My First Bootstrap Page</h1>
+	  <p>Resize this responsive page to see the effect!</p>
+	  <p> Customizing </p>
+	</div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-lg-2" style="background-color: Lavender;"> 
+      <h3>Column 1</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    </div>
+    
+    <div class="col-lg-5" style="background-color: Lavenderblush;">
+      <h3>Column 2</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    </div>
+    
+    <div class="col-lg-5" style="background-color: Lavender;">
+      <h3>Column 3</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    </div>
+    
+  </div>
+</div>
+</body>
+</html>
