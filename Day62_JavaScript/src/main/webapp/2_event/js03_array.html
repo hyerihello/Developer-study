@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이상형찾기</title>
+<script type="text/javascript">
+	function choiceBoy(){
+		var nick = document.frm.nick;
+		//alert(nick);
+		
+		var arr = document.frm.boy;
+		//alert(arr.length); // 배열로 리턴된다.
+		
+		var str ="";
+		for(var i=0; i<arr.length; i++){
+			if(arr[i].checked){ //arr[i]은 form, checked = checkbox가 선택 되었다면
+				//alert(arr[i].value);
+				str+=arr[i].value+" "; // 여기서 복합연산자 +=를 사용해야한다. +"" 해주는 이유는 띄워쓰기
+			}
+			arr[i].checked = false; //이후 check 해지
+		}
+		if(str=="") alert("이상형 한명은 꼭 선택해 주세요 :)")
+		else alert("당신의 이상형은 "+str+"입니다");
+	}
+</script>
+</head>
+<body>
+<form name ="frm">
+	<strong>이상형을 고르세요 (중복선택 가능)</strong><br/><br/>
+	NickName <input type="text" name="nick"><hr><br/><br/>
+	<input type="checkbox" name="boy" value="김우빈">김우빈<br/>
+	<input type="checkbox" name="boy" value="조승우">조승우<br/>
+	<input type="checkbox" name="boy" value="서강준">서강준<br/>
+	<input type="checkbox" name="boy" value="이병헌">이병헌<br/>
+	<input type="checkbox" name="boy" value="원빈">원빈<br/>
+	<input type="button" value="choice" onclick="choiceBoy()">
+</form>
+</body>
+</html>

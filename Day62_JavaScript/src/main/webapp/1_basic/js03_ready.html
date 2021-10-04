@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQuery :: ready()</title>
+<script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+
+	$(document).ready(function() {
+	// window.onload 와 같은 기능	, 여러번 사용 가능
+	
+	var list = ''; // 지금은 값이 없지만, 이후 동적으로 데이터가 할당 
+	
+	
+	list += '<ul>';
+	list += '<li>hello</li>';
+	list += '<li>JavaScript!</li>';
+	list += '</ul>';
+	
+	
+	document.getElementById("wrap").innerHTML = list;
+	});
+	
+	$(document).ready(function() {
+		alert("aaa");
+	});
+	$(document).ready(function() {
+		alert("bbb");
+	});
+</script>
+</head>
+<body>
+<h2>======== onload ======</h2>
+<div id = "wrap"></div>
+</body>
+</html>

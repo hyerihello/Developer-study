@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function checkAge(){
+/*
+1. 입력된 나이가 19세 이상이면 "성인입니다 사이트 입장 가능하십니다 :)" 메세지를 alert 창으로 띄우고 
+2. 19세 미만이면 "성인이 아닙니다 입장 불가입니다" 메세지를 alert 창으로 띄운다
+	--> 위 작업 모두 진행한 후 입력박스의 값을 초기화 시키고, 커서는 다시 재위치 시킨다.
+3. 만약 입력된 값이 없으면 "값을 입력하세요" 창을 띄우고
+4. 숫자 대신 문자를 입력하는 유저들을 위해 "나이는 숫자로 입력" 이라는 메세지를 띄운다.
+
+*/
+	var age = document.ageFrm.age; //폼까지 잡아둔다.
+	if(age.value==""){
+		alert("나이를 입력하세요");
+	}else if(isNaN(age.value)){ //문자 입력시
+		alert("나이는 반드시 숫자로 입력하세요");
+	}else if(age.value>=19){ //성인이라면
+		alert("성인입니다 사이트 입장 가능합니다");
+	}else{
+		alert("미성년자입니다. 성인만 입장 가능합니다.")
+	}
+	
+	age.value="";
+	age.focus();
+}
+	
+</script>
+</head>
+<body>
+<form name="ageFrm">
+	AGE <input type="text" name="age">
+	<!-- 
+	이벤트의 근원지 button :: Source라 한다
+	발생하는 이벤트는 클릭 이벤트이다.
+	
+	마우스이벤트, 아이템이벤트, 키이벤트, 클릭이벤트 -- 이벤트 class
+	
+	-->
+	<input type="button" value="CheckAge" onclick="checkAge()">
+</form>
+</body>
+</html>

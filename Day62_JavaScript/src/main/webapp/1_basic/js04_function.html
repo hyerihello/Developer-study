@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 
+	자바스크립트 함수 선언 방법 2가지
+	
+	1) 익명함수 선언방법
+	  :: 함수의 형태를 갖고 있지만 특정한 이름을 갖고 있지 않음
+	  	 ex) var fuc = function(){...}
+	2) 선언적 함수 선언방법
+	  :: 특정한 이름을 갖고 있는 함수 
+	     ex) function fuc(){...}
+	
+ -->
+<script type="text/javascript">
+var name = "James"; // 전역변수 :: 함수 선언 외부에있다.
+
+// 선언적 함수선언
+function showInfo(){
+	var name = "Peter"; // 지역변수 :: 함수 정의 내부에 있다.
+	console.log(name); //Peter
+}
+
+console.log(name); // James
+showInfo(); //Peter
+
+function showAge(){
+	// age = 90; // var를 선언하지 않으면 전역변수로 지정한다
+	let age = 90; // 지역변수
+	console.log(age);
+	/* es6 :: let(local), const(state, 상수), Arrow Function, grave Accent */
+}
+showAge();
+//console.log(age);
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

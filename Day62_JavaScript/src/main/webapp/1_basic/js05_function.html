@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">	
+	/*  선언적 함수 선언
+	
+		함수를 선언적 함수 선언방식으로 작성하면
+		이 부분은 미리 메모리에 올라가있다
+		웹 브라우저는 script 태그 안 내용을 한 줄씩 실행한다.
+		이때 info()를 호출해도 실행 상 에러가 안나는 이유는
+		2--> 3--> 1 번의 순서로 결과적으로 수행된다. 
+	*/
+	
+	info(); // 앞에서 선언해야함 (1)
+	
+	function info(){ //(2)
+		alert("func info() A");
+/* 		alert("undefined..." +greet); //undifi		
+		var greet = "Hello Hosting~!"; */
+}
+	
+	function info(){ //(3)
+		alert("func info() B");	
+}
+	
+	
+	
+	
+	
+	// 익명함수 선언
+	// anno(); --- 에러난다
+	/*
+		선언적 함수와 익명함수 선언은 결과적으로
+		호출 순서가 완전히 다르다.
+		이것만 기억하자!
+	*/
+	var anno = function(){
+		alert("annonymous A");
+	}
+	
+	var anno = function(){
+		alert("annonymous B");
+	}
+	anno();
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

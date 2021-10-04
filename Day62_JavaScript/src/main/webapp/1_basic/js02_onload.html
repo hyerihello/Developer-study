@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>onload() 함수와 복합연산자</title>
+<script>
+	/* 
+		window.onload
+		::
+		html 문서에 포함된 모든 컨텐츠가 메모리에 로드된 후에 실행되는 함수
+		동일한 html 문에서 오직 하나만 사용되어야 한다.
+	*/
+
+	window.onload = function(){
+	var list = ''; // 지금은 값이 없지만, 이후 동적으로 데이터가 할당 
+	
+	
+	list += '<ul>';
+	list += '<li>hello</li>';
+	list += '<li>JavaScript!</li>';
+	list += '</ul>';
+	
+	// list변수안에 축적된 모든 내용을 
+	document.getElementById("wrap").innerHTML = list;
+	}
+</script>
+</head>
+<body>
+<h2>======== onload ======</h2>
+<div id = "wrap"></div>
+</body>
+</html>

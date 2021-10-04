@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+// 선언적 함수 선언 :: 2개의 함수를 선언한다
+
+function showData(){
+	
+	// ==== 1. 닉네임으로 입력한 값을 받아와서 변수에 할당하는 로직을 작성
+	
+	
+	var nickName = document.LoginFrm.nick.value;
+	// ===================   ↑ (전체 form name. input name . 값을 받아오는 value)	
+	//alert(nickName+" , Hello~!");
+	
+	
+	/*
+     위의 alert 영역을 주석으로 막은 후 div영역에 붉은 글씨로 출력하기 
+     getElementById()... innerHTML사용하기
+	*/
+	document.getElementById("result").innerHTML 
+			= "<h2><font color=red>"+nickName+", Hello~!</font></h2>"
+	
+	//=== clear zone
+	document.LoginFrm.nick.value= "";
+	//=== cursor zone
+	document.LoginFrm.hobby.focus(); //.focus :: 접근제한자
+	
+	
+	// ====== 이런식으로 변경해도 가능하다.
+	//var frm = document.loginFrm.nick;
+	//document.loginfrm.nick.value = "";
+	//document.loginfrm.hobby.focus();
+}
+
+
+function showHobby(){
+	// ==== 2. document 의 getElementById() 를 사용해서 접근하기
+	
+	var frm = document.getElementById("hobby");
+	//alert(frm.value+" 가 취미시군요!!");
+	
+	
+	document.getElementById("result").innerHTML 
+			= "<h2><font color=blue>"+frm.value+", Hello~!</font></h2>"
+	
+	//=== clear zone
+	frm.value="";
+	//=== cursor zone
+	document.LoginFrm.nick.focus();
+	
+	}
+
+
+</script>
+</head>
+<body>
+<form name="LoginFrm">
+	NickName <input type="text" name="nick">
+	<input type="button" value="닉네임보기" onclick="showData()"><br/><br/>
+	Hobby <input type="text" name="hobby" id="hobby">
+	<input type="button" value="취미보기" onclick="showHobby()"><br/><br/>
+	
+</form>
+<!-- alert 영역 말고 div 영역 (화면)에 출력하기 -->
+<div id="result"></div>
+</body>
+</html>

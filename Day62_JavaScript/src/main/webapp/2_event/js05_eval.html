@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	document.write(50+70+'<br>'); //120
+	document.write('50+70'+'<br>'); // 50+70 이렇게 나온 문자열이 계산되어야 한다.
+	
+	// 문자열을 계산하기 위한 eval 함수
+	document.write(eval('50+70')+'<br>');  
+	document.write(eval('50.6+70')+'<br>');
+	
+	//형변환 함수 --> parseInt(), parsefloat()
+	document.write(parseFloat('50.6')+parseInt('70')+'<br>');
+</script>
+</head>
+<body>
+
+</body>
+</html>

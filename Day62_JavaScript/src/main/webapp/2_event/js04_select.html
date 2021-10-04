@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function itemchange(){
+		//alert("선택되었습니다")
+		
+		// === 선택한 지하철 노선이 있다면 alert으로 해당 노선을 출력
+		
+		var subway = document.getElementById("line");
+		if(subway.value != null){ //선택한 노선이 있다면
+			alert(subway.value + "호선을 선택하였습니다.")
+			subway.value="";
+		}
+		
+	}
+</script>
+</head>
+<body>
+<form name="form" id="form">
+	<!-- 
+		id = "line"   :: getElementById("line") 을 사용할 때
+		name = "line" :: Domtree 의 Hierarchy(계층구조) 를 사용할 떄
+		onclick = "item()" :: 하나만 클릭해도 사용된다. 즉 ---호선---을 눌렀을때도 사용되기에 부적절함.
+		onchange = "itemchange()" :: item이 변경될 때마다 이벤트를 발생시켜야한다.
+		
+	 -->
+	<!-- <select id="line" name="line" onclick="item()"> -->
+	<select id="line" name="line" onchange="itemchange()">
+		<option value="">----호선----</option>
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+		<option value="6">6</option>
+		<option value="7">7</option>
+		<!-- value="7" 은 서버전송 , 7은 화면 출력되는 값 -->
+	</select>
+
+</form>
+</body>
+</html>
