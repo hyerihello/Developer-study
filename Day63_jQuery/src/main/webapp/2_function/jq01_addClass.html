@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	.totalColor{color:orange;}
+	.divP{color:red;}
+	.divDP{color:green;}
+	.firstP{background-color: gray;}
+	.lastP{background-color:gray;}
+	.content{color:blue;}
+	.pp2{color:magenta;} 
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(function(){
+		// 아래에서 지정된 선태자에 css속성을 추가한다 .. addClass()를 이용한다.
+		// css와 jquery를 완벽하게 분리시킨다.
+		
+		$('h2,p').addClass('totalColor');
+		$('div p').addClass('divP');
+		$('div>p').addClass('divDP');
+		$('p:eq(0)').addClass('firstP');
+		$('p:eq(2)').addClass('lastP');
+		$('.content').addClass('content');
+		$('p.p2').addClass('pp2');
+		
+		var h2 = $('h2').html(); //innerHTML ___ JS
+		alert(h2);
+		
+		/* 중요한 함수 :: var (), text(), html(), innerHTML(), addClass() */
+	});
+</script>
+</head>
+<body>
+<h2 id="header">What is jQuery?</h2>
+<p class="content p1">jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers. With a combination of versatility and extensibility, jQuery has changed the way that millions of people write JavaScript</p>
+<p class="content p2">Call a local script on the server /api/getWeather with the query parameter zipcode=97201 and replace the element #weather-temp's html with the returned text.</p>
+<div>
+	<p class="content">Call a local script on the server /api/getWeather with the query parameter zipcode=97201 and replace the element #weather-temp's html with the returned text.</p>
+</div>
+</body>
+</html>

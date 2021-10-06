@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	/* 맨마지막 이미지가 맨 앞으로 나온다*/
+	.image{position: absolute; top: 30px; left: 30px;}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(function(){
+		//1. 페이지가 로드되자마자 일단 모든 이미지를 숨긴다.
+		$('.image').hide();
+		
+		//2. 첫번째 이미지가 보여지도록 서서히
+		$('.image:first').show(3000);
+		
+		//3. 보이는 이미지를 클릭할 때마다 다음번(next()) 이미지가 보여지도록 한다. 슬라이딩 효과로
+		$('.image').click(function(){
+			//a 태그의 기본적인 이벤트를 막아두는 기능 :: preventDefault() -->  a태그의 href를 해제하는 기능
+			event.preventDefault();
+			
+			$(this).next().show(2000);
+			//alert($(this).next().length)
+			
+		//4. next().length 한 결과가 1이면 (0이 아니면) 다음번 이미지를 보이고, 0이면 첫번째 이미지가 보여지도록 하자
+		// 삼항연산자
+		
+			// 1이면 this, 0이면 image first
+			var nextimage=$(this).next().length?$(this).next():$('.image:first');
+		/* 	$(this).hide(1000);
+			nextimage.show(3000); */
+			
+			/* $(this).fadeOut(1000);
+			nextimage.fadeIn(3000); */
+			
+		// fadeToggle() :: 보이는 요소는 보이지 않게, 보이지 않는 요소는 보이게 함
+			$(this).fadeToggle(2000);
+			nextimage.fadeToggle(3000);
+			
+			
+		}); //click
+	});
+</script>
+</head>
+<body>
+<a class="image" href="http://jquery.com">
+	<img alt="" src="../image/1.jpg" height="370" width="300">
+</a>
+<a class="image">
+	<img alt="" src="../image/2.jpg" height="370" width="300">
+</a>
+<a class="image">
+	<img alt="" src="../image/3.jpg" height="370" width="300">
+</a>
+<a class="image">
+	<img alt="" src="../image/4.jpg" height="370" width="300">
+</a>
+<a class="image">
+	<img alt="" src="../image/5.jpg" height="370" width="300">
+</a>
+</body>
+</html>

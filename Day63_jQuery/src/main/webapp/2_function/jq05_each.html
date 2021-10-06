@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	.high_light_0{background-color: #7b14ff;}
+	.high_light_1{background-color: #ad97ec;}
+	.high_light_2{background-color: #b1afe7;}
+	.high_light_3{background-color: #ccdfff;}
+	.high_light_4{background-color: #f6e7ea;}
+	.high_light_5{background-color: #ffb6c1;}
+	.high_light_6{background-color: #ffe4e1;}
+	.high_light_7{background-color: #ffdab9;}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	/*
+		each :: 일종의 for문과 동일한 s기능
+		동일한 태그가 반복적으로 나왔을 때 사용한다. 
+		작동방식은 동일한 태그의 갯수만큼(h1 .. 8개)
+		each() 함수가 8번 호출된다 (내부적으로)
+		=> 내부적으로 index 가동되어진다.
+		첫번째 index는 당연히 0으로 시작
+	*/
+	$(function(){
+		$('h1').each(function(index) { // 0~7
+			$(this).addClass('high_light_'+index);
+		});
+	});
+</script>
+</head>
+<body>
+	<h1>Item - 0</h1>
+	<h1>Item - 1</h1>
+	<h1>Item - 2</h1>
+	<h1>Item - 3</h1>
+	<h1>Item - 4</h1>
+	<h1>Item - 5</h1>
+	<h1>Item - 6</h1>
+	<h1>Item - 7</h1>
+</body>
+</html>

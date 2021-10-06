@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		// 입력된 모든값을 넘기기위해서는 선택자를  form으로 잡아야한다
+		$('#frm').submit(function() { //JavaScript에서의 onsubmit 속성과 동일
+			
+		//1. 폼값 받는다. -- val()
+		var id = $('#id').val();
+		var pass = $('input[name=password]').val();
+		var name = $(':text[name=name]').val();
+		
+		//alert(id+","+pass+","+name);
+		
+		//2. 서버로 연결한다. -- confirm () 창 활용
+ 		return confirm(name + "님의 정보를 서버로 전송할까요?");
+
+		});
+	});
+</script>
+</head>
+<body>
+<h2>Form에서 전송한 값을 Jquery에서 받아서 처리한 후 서버로 전송하는 방법</h2>
+<form action="jq04_result.jsp" id="frm" name="frm">
+ID : <input type ="text" name="id" id="id"><p> <!-- <p> = <br/> 2개 -->
+PASSWORD : <input type ="password" name="password" id="password"><p>
+NAME : <input type ="text" name="name" id="name"><p>
+<!-- <button type="submit">SEND</button>  -->
+<!-- button이 아님 -->
+<input type="submit" value="SEND"> <!-- 선택자는 form 이다. -->
+</form>
+</body>
+</html>

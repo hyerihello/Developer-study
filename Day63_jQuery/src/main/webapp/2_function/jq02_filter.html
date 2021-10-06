@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>filter() :: 걸러내는 기능</title>
+<style type="text/css">
+	.css{ background: greenyellow; color: whilte;}
+	.redColor{color: red;}
+	.blueColor{color: blue;}
+</style>
+	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(function(){
+		//filter 함수는 동일한 태그들이 있을 때 여러개의 태그중에서 특정 조건에 부합하는 태그들을 걸러낼 때 사용한다.
+		
+		//1. 중첩 :: css().css() -> css({}) -> addClass() 로 점차 효율적!
+		$('h1').filter(function(index) {
+			return index % 3==0 || index % 5==0;
+		
+		// 1-1)	
+/* 		}).css({
+			background : 'greenyellow',
+			color:'white' 
+		});	
+			*/
+			
+		// 1-2)
+		}).addClass('css');
+		
+		
+		
+		//2.
+		// h1 태그 중에서 짝수번째 태그만 걸러서 글자색을 red : ': even'
+		// h1 태그 중에서 홀수번째 태그만 걸러서 글자색을 blue : ': odd'
+		$('h1').filter(':even').addClass('redColor');
+		$('h1').filter(':odd').addClass('blueColor');
+		
+		 
+	});//ready
+	
+</script>
+</head>
+<body>
+	<h1>Item - 0</h1>
+	<h1>Item - 1</h1>
+	<h1>Item - 2</h1>
+	<h1>Item - 3</h1>
+	<h1>Item - 4</h1>
+	<h1>Item - 5</h1>
+	<h1>Item - 6</h1>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery :: keyevent</title>
+<style type="text/css">
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(function(){
+		// 선택적 함수
+		$('#id').keyup(function () {
+			alert($('#id').val());
+		})
+	});
+</script>
+</head>
+<body>
+<form name="frm">
+	키 이벤트 - 아이디 입력 : <input type ="text" name = "id" id ="id">
+</form>
+</body>
+</html>

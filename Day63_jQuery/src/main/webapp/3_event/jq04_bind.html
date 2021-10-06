@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>bind() :: 이벤트를 묶는기능 :: 클릭이벤트</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(function(){
+ 		
+/*  		// 1. bind() 함수
+		$('h2').bind('click', function () { // 클릭이벤트 함수
+			//$('h2:eq(0)').html('hello'); // 실용적이지 않음, 모든 h2를 클릭하기 위해서는!
+			// click, 이벤트가 적용된 h2태그 자기자신 --> $(this)
+			$(this).html('HELLO!');
+		});
+		
+		
+		
+		// 2. click()
+		$('h2').click(function () { // 클릭이벤트 함수
+			// click, 이벤트가 적용된 h2태그 자기자신 --> $(this)
+			$(this).html('HELLO!');
+		});
+		
+		
+		
+ 		// 3. append() :: 변경하지 않고 문장 뒤에 ★ 출력
+		$('h2').click(function () { // 클릭이벤트 함수
+			// click, 이벤트가 적용된 h2태그 자기자신 --> $(this)
+			$(this).append('★');
+		});
+		
+ 		
+ 		
+
+		// 4. html() 함수를 이용해서 3번과 동일한 결과 출력 
+		$('h2').click(function () { // 클릭이벤트 함수
+			$(this).html(function(index,html) {
+				return html+'★';
+		});
+ */
+		
+		
+		// 5. switch 문 이용해서 각 문장의 뒤에 출력
+		$('h2').click(function () { 
+			$('h2').html(function(index,html) {
+				switch(index){
+				case 0: return html+'★';
+				case 1: return html+'●';
+				case 2: return html+'♥';
+			}
+			});
+		});
+	});
+</script>
+</head>
+<body>
+	<h2>jQuery is a fast, small, and feature-rich JavaScript library.</h2>
+	<h2>jQuery is a fast, small, and feature-rich JavaScript library.</h2>
+	<h2>jQuery is a fast, small, and feature-rich JavaScript library.</h2>
+</body>
+</html>

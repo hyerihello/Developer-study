@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(function(){
+	//1. 버튼 클릭시 함수 호출 (Test)
+		
+		$('#createBtn').click(function(){
+		// --- 버튼의 함수를 한번만 출력
+			//$('#resultView').html($(this).val()); // 버튼의 함수를 한번만 출력
+						
+		// --- 버튼의 함수를 연속적 출력
+			//$('#resultView').append($(this).val()+"<p></p>"); 
+			
+		// --- html() 을 이용해서 append와 동일한 결과를 출력
+			var result = $('#resultView').html(); //처음엔 내용이 없음
+			$('#resultView').html(result+$(this).val()+"<p></p>")
+			
+		}); //click
+		
+		
+		
+		
+		
+	//2. select 폼에서 내가 선택한 영화가 resultView 영역에 뿌려지도록(동적으로)
+		
+/* 		$('#createSel').change(function () {
+			var result=$('#resultView').html();
+			var item = $('#createSel>option:selected').val()
+			$('#resultView').html(result+item+"<p></p>")
+		}); */
+		
+		
+		$('#createSel').change(function () {
+			var result = $('#resultView').html();
+			$('#resultView').html(result+$(this).val()+"<p></p>")
+		}); //change
+	});
+</script>
+</head>
+<body>
+	<h2>9월 상영 영화</h2>
+	<input type="button" value="버튼클릭시 동적으로 문자열 생성하기" id="createBtn">
+	<select id="createSel">
+		<option>샹치와 텐 링즈의 전설</option>
+		<option>최선의 삶</option>
+		<option>인질</option>
+		<option>건파우더 밀크셰이크</option>
+		<option>코다</option>
+	</select>
+	<div id="resultView"></div>
+	
+</body>
+</html>

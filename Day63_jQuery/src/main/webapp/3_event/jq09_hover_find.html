@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>find() :: 특정한 선택자를 발견해서 함수를 적용할 때 사용함</title>
+<style type="text/css">
+	table{
+		border: 3px solid hotpink;
+		width:550px;
+	}
+	tr, th, td{text-align:center; border:1px dotted blue; font-size:1.2em;}
+	.hover{background-color:Lavender; color:#fff;}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(function(){
+		//1. tbody 후손 중에서 tr을 선택자로 지정, hover() 함수를 연결한다.
+		//2. hover() 안에서 현재 이벤트가 적용된 tr 태그 중에서 td라는 태그를 발견한다면 addClass() 적용|removeclass()적용
+		$('tbody tr').hover(function(){
+			$(this).find('td').addClass('hover');
+		}, function(){
+			$(this).find('td').removeClass('hover');
+		});
+	
+	});
+
+</script>
+</head>
+<body>
+<table>
+	<thead>
+		<tr>
+			<th>번호</th><th>이름</th><th>주소</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>111</td><td>아이유1</td><td>서초동</td>
+		</tr>
+		<tr>
+			<td>222</td><td>아이유2</td><td>서초동</td>
+		</tr>
+		<tr>
+			<td>333</td><td>아이유3</td><td>서초동</td>
+		</tr>
+		<tr>
+			<td>444</td><td>아이유4</td><td>서초동</td>
+		</tr>
+	</tbody>
+
+</table>
+</body>
+</html>

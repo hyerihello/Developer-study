@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> hover()::mouseenter, mouseleave 이벤트포커스 2개를 이미 가지고 있는 함수 , 이미지에서 hover 효과 내기</title>
+<style type="text/css">
+	.larger{ width:200px; border:2px solid red;}
+	img{ width:100px;}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(function(){
+
+		$('img').hover(function(){
+			$(this).addClass('larger');
+		}, function(){
+			$(this).removeClass('larger');
+			
+			
+	/* 모든관계 : vertical(수직) | horizontal(수평)
+	
+	traversal(순회) :: 모든 관계를 찾는 방법
+	 - find() 
+	:: hover 이벤트가 적용된 img 태그중에서 class 값으로 h를 발견하면 addclass() 를 적용하겠다
+	
+	*/	
+
+		});
+	});
+</script>
+</head>
+<body>
+	<h2>Bigger Image</h2>
+	<img alt="" src="../image/1.jpg"><br/>
+	<img alt="" src="../image/2.jpg"><br/>
+	<img alt="" src="../image/3.jpg"><br/>
+</body>
+</html>

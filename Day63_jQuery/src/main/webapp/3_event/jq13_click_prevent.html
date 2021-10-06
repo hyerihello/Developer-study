@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(function(){
+		// 1. 첫번째 h2태그를 클릭하면 , 이벤트 적용된 태그데 CLICK 이라는 메세지를 출력 (글자색은 red)
+/* 		$('h2:eq(0)').click(function(){
+			$(this).html('<font color=red>CLICK</font>');
+			//$(this).text('<font color=red>CLICK</font>'); // text :: ()안에 모든것을 text기반으로 변경 후 뿌린다
+			alert('CLICK()....calling...!') */
+			
+		
+			
+/* 		$('h2:eq(0)').bind('click',function(){
+			$(this).html('<font color=red>CLICK</font>');
+			alert('CLICK()....calling...!'); */
+		
+			
+ 		$('h2:eq(0)').on('click',function(){
+			$(this).html('<font color=red>CLICK</font>');
+			alert('CLICK()....calling...!');	 
+			
+		// 클릭 이벤트가 더 이상 작동되지 않도록 한다 -> bind 해제한다.
+			$(this).unbind();
+			
+			
+		// **** 한번만 호출 
+		
+/* 		$('h2:eq(0)').one('click',function(){ // 한번만 호출
+			$(this).html('<font color=red>CLICK</font>');
+			alert('CLICK()....calling...!')  */
+		});
+	});
+</script>
+</head>
+<body>
+	<h2>jQuery is a fast, small, and feature-rich JavaScript library.</h2>
+	<h2>jQuery is a fast, small, and feature-rich JavaScript library.</h2>
+	<h2>jQuery is a fast, small, and feature-rich JavaScript library.</h2>
+</body>
+</html>

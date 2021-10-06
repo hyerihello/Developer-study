@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- 
+
+	jquery 는 javascript 이기 때문에 script 안에서 사용해야한다.
+	html 은 순서대로 적용하는 파일 → 전체를 메모리에 업로드 시켜놓고 script를 실행해야 한다.
+	
+	1. javascript :: window.onload = function(){}
+ 	2. jquery :: $(document).ready(function){}
+ 	
+ -->
+<script type="text/javascript">
+	// 1. $(document).ready(function(){});
+	$(document).ready(function(){
+		alert("jquery!")
+	});
+	
+	
+	// 2. jQuery(document).ready(function(){});
+	jQuery(document).ready(function(){
+		alert("jquery!")
+	});
+	
+	
+	// 3. jQuery(function(){});
+	jQuery(function(){
+		alert("jquery!")
+	});
+	
+	
+	// 4. $(function(){}); -- 가장 많이 사용됨 
+	$(function(){
+		alert("jquery!")
+	});
+	
+	
+	
+	// jquery 의 선택자 지정 
+	$(function(){
+		$('#header').css('color','red');
+		$('.content').css('background','lightgray');
+		$('.p2').css('color','green');
+	});
+	
+	
+	// 메소드 중첩 또한 가능하다
+	$(function(){
+		$('#header').css('color','red');
+		$('.content').css('background','lightgray').css('border','2px solid hotpink');
+		$('.p2').css('color','green');
+	});
+	
+	
+</script>
+</head>
+<body>
+<h2 id="header">What is jQuery?</h2>
+<p class="content p1">jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers. With a combination of versatility and extensibility, jQuery has changed the way that millions of people write JavaScript</p>
+<p class="content p2">Call a local script on the server /api/getWeather with the query parameter zipcode=97201 and replace the element #weather-temp's html with the returned text.</p>
+</body>
+</html>

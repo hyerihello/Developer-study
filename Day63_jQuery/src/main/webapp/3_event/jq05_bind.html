@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>bind :: 여러개의 이벤트를 묶어주는 기능 :: mouseenter + mouseleave</title>
+<style type="text/css">
+	.reverse{background-color: black; color: white;}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(function(){
+		$('h2').bind({ //bind 묶는기능 (마우스 진입,퇴출 이벤트 묶는기능)
+			mouseenter:function(){ // 마우스가 특정 영역 안으로 진입했을 때 호출
+				$(this).addClass('reverse');
+			},
+			mouseleave:function(){ // 마우스가 특정 영역 밖으로 나왔을 때 호출
+				$(this).removeClass('reverse');
+			}
+		}); // bind
+	});
+</script>
+</head>
+<body>
+	<h2>jQuery is a fast, small, and feature-rich JavaScript library</h2>
+	<h2>jQuery is a fast, small, and feature-rich JavaScript library</h2>
+	<h2>jQuery is a fast, small, and feature-rich JavaScript library</h2>
+</body>
+</html>
