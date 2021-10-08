@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(function(){
+		$('#ajaxBtn').click(function() {
+			
+			/* ★ 중요 !
+			
+			 1. type : get, post 인지 확인하기
+			 2. url : server에 어떤 page로 전송 할 것인지 확인하기
+			 3. data : "name=encore" 형식으로 데이터를 담아서 전송
+			
+			*/ 
+			
+		//ajax 연결 .. 하나의 페이지에 요청부분 | 응답부분
+			$.ajax({ 
+
+		// ----- 1. 비동기 요청하는 부분
+				type:"post",
+				url:"Hello", // url 이름은 servlet 의 @WebServlet("/Hello") 이름과 같아야한다.
+				data:"name=hyeri", // <--- 여기까지가 속성의 전부이다!
+				
+				
+			/* type:"get"일땐 아래와 같은 형식으로 사용
+				url:"HelloAjax?name=encore&pass=1234", */
+				
+						
+		// ----- 2. 비동기 응답하는 부분
+				success:function(result){
+					alert(result);
+				},//callback
+				
+ 				error:function(){
+					alert("응답시간이 지연되고 있습니다.. Error!!")
+				},
+				timeout:1000  // 1초동안 서버로 부터 응답이 없으면 에러처리 (즉 응답 대기시간을 지정할 수 있다.)
+			
+			/*
+			
+			String id = request.getParameter("id");
+			request.getRequestDispatcher("resultView.jsp").forward(request, response);
+
+			*/
+			
+			
+			});//ajax :: 비동기부분			
+		});// click
+	});//ready
+</script>
+</head>
+<body>
+	<input type="button" value="Jqueryajax" id="ajaxBtn">
+</body>
+</html>

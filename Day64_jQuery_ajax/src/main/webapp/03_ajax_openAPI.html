@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(function(){
+	$('#send').on('click', function() { // 또는 $('#send').one('click', function() :: 한번만 출력
+		$.ajax({
+			// 요청
+			type:'post',
+			url:'http://localhost:9999/weather.xml', //default
+			dataType:'xml', // json, xml 일때는 응답되는 데이터 타입을 지정하는 옵션
+			
+			// 응답
+			success:function(result){
+				// alert(result); // XML 객체가 리턴됨
+				// alert($(result)); // XML의 <info> 객체 리턴
+				// alert($(result).length); // XML의 <info> 객체 확인 -- 1 출력
+				// alert($(result).find("list").length); // XML의 <list> 객체 확인 -- 3 출력
+				
+				var str = ""; // 복합연산자
+				
+				//list 에 each() 적용
+				$(result).find('list').each(function(index, item) {
+					var region = $(this).find('region').text();//html() 과 동일
+					var wind =  $(this).find('wind').text();
+					var temp =  $(this).find('temp').text();
+					var rain =  $(this).find('rain').text();
+					
+				// <tbody></tbody> 출력!
+					str +='<tr>';
+					str +='<td>'+region+'</td>';
+					str +='<td>'+wind+'</td>';
+					str +='<td>'+temp+'</td>';
+					str +='<td>'+rain+'</td>';
+					str +='</tr>';
+					
+				});//each
+				
+			//부착하기 전에 이미 있는 것들을 삭제한다
+				$('tbody tr:gt(0)').remove();//one을 안해주면 이렇게라도 해야한다.
+				
+			//위의 str내용을 tbody에 부착한다 :: append()
+				$('tbody').append(str);
+			},
+			
+			error:function(err){
+				alert("오류 발생 ======>" + err);
+			}
+			
+		});//ajax
+	});//one
+	});
+</script>
+</head>
+<body>
+<h2>====== OPEN API 공공데이터 가져오기 ======</h2>
+<a href="#" id="send">XML 데이터 서버로 전송 요청하기</a>
+<P></P>
+<table>
+	<thead>
+		<tr>
+			<th>지역</th><th>풍속</th><th>온도</th><th>강수량</th>
+		</tr>
+	</thead>
+	
+	<tbody>
+		<!--  $('tbody').append(str); -->
+	</tbody>
+	
+</table>
+</body>
+</html>
