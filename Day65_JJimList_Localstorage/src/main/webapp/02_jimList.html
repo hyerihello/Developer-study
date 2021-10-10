@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	.poster{ width:90px; height:90px;}
+</style>
+<link rel="stylesheet" type="text/css" href="css/basic1.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(function(){
+		refreshPage(); // 함수호출
+		
+	// 미래의 삭제버튼을 위해 content 영역을 선택자로 지정하고 click을 했을때 deleteCartStorage 함수가 실행된다.
+		$('#content').on('click', '#deleteCart', deleteCartStorage);
+	});
+	
+ 	//javaScript 선언적 함수 선언방식
+	function refreshPage() {
+		var html="";
+		var totalPrice = 0; 
+		
+	//for문을 사용해서 localStorage 안에 있는 값들을 뽑아온다.
+		for(var key in localStorage){
+			if(key=='length')break;
+			
+			var data = localStorage.getItem(key).split(","); //어벤저스, img/aaa.jpg, 3000
+			
+			// image[1], key, 영화제목[0], 금액[2]
+			// class='poster' ::  크기조정을 위해 추가!
+			// id=deleteCart :: 삭제
+			html += "<tr><td><img class='poster' src="+data[1]+"></td><td>"+key
+			+"</td><td>"+data[0]+"</td><td>"+data[2]+
+			"</td><td><button id=deleteCart value=" + key + ">삭제</button></td></tr>";
+			
+			//data[2] 는 string으로 나오기 때문에 int로 바꾼후 totalPrice로 따로해줘야한다.
+			totalPrice += parseInt(data[2]); 
+			
+		}//for
+		
+		$('#content').html(html);
+		$('#price').html("주문가격 :" + totalPrice);
+	} 
+ 	
+ 	// 삭제를 위한 선언적 함수
+ 	
+ 	function deleteCartStorage() { //localStorage에 있는 key값을 삭제
+		var y = confirm($(this).val() + "을 정말 삭제 하시겠습니까?");
+ 		if(y){
+ 			localStorage.removeItem($(this).val());
+ 			refreshPage();
+ 		}
+	}
+ 	
+</script>
+</head>
+<body>
+	<article class="main">
+		<section>
+			<table width="80%" align="cener">
+			<!-- table 제목 -->
+			<caption class="caption">찜 리스트</caption>
+				<thead>
+					<tr>
+						<th>이미지</th><th>상품번호</th><th>상품이름</th><th>가격</th><th>삭제</th>
+					</tr>
+				</thead>
+				<!-- 내용 -->
+				<tbody id="content">
+					<!-- $('#content').html(html); -->
+				</tbody>
+			</table>
+		</section>
+		
+		<section class="totalprice" id="price">
+			<!-- $('#price').html("주문가격 :" + totalPrice); -->
+		</section>
+		
+		<section class="link">
+			<table align="center">
+				<tr>
+					<td>
+						<a href = "#">주문하러가기</a>
+						<a href = "index.html">DVD 목록보기</a>
+					</td>
+				</tr>
+			</table>
+		</section>
+	</article>
+</body>
+</html>
