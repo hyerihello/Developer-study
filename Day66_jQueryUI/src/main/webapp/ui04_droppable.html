@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Droppable - Default functionality</title>
+  
+  <style type="text/css">
+  	#clothing{margin-left: 10px; width:600px; float:left;}
+  	#cart{ margin: 0px; width: 450px; float: left; padding: 2em; margin-top: 10px}
+  </style>
+  
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/sunny/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+		//1. 아코디언 적용
+		$('#catalog').accordion({
+			heightStyle:'content'
+		}); //accordion
+		
+		
+		//2. draggable 적용
+		$('#catalog li').draggable({
+			helper:'clone', //다시 제자리로 돌아오는 기능 
+			appendTo:'#cart'
+		}); //draggable
+		
+		
+		//3. droppable 적용
+		$('#cart ol').droppable({
+			drop: function( event, ui ) {
+				var uidrag = ui.draggable.text(); //끌고가는 ui에 text를 받아서 사용해야한다
+				//alert(uidrag);
+				
+				// placeholer 부분을 먼저 삭제한다.
+				$(this).find('.placeholder').remove()
+				$(this).append('<li>' + uidrag + '</li>');
+			}
+		});
+  });
+  </script>
+</head>
+<body>
+	<div id = "clothing">
+		<h2 class="ui-widget-header"> 카 탈 로 그 </h2>
+		<div id = "catalog">
+			<h2><a href="#">상의류</a></h2>
+			<div>
+				<ul>
+					<li>셔츠</li>
+					<li>폴라티</li>
+					<li>자켓</li>
+					<li>가디건</li>
+					<li>티</li>
+					<li>코트</li>
+				</ul>
+			</div>
+			
+			<h2><a href="#">하의류</a></h2>
+			<div>
+				<ul>
+					<li>청바지</li>
+					<li>스커트</li>
+					<li>반바지</li>
+					<li>레깅스</li>
+				</ul>
+			</div>
+			
+			<h2><a href="#">기타 액세서리</a></h2>
+			<div>
+				<ul>
+					<li>손목시계</li>
+					<li>백팩</li>
+					<li>지갑</li>
+					<li>목걸이</li>
+					<li>팔찌</li>
+				</ul>
+			</div>
+		</div>
+	</div> 
+	
+	<!-- drop할 영역을 지정 :: 일정의 장바구니 , cart -->
+	<div id = "cart">
+		<h2 class="ui-widget-header">Clothing Cart</h2>
+		<div class="ui-widget-content"> <!-- droppable 되어지는 역할 -->
+			<ol> <!-- Ordered List의 줄임 말로, 순서가 있는 목록 -->
+				<li class="placeholder">Dropping Here!!</li>
+			</ol>
+		</div>
+	</div>
+</body>
+</html>

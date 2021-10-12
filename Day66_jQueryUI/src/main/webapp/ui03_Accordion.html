@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Accordion - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/sunny/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#accordion" ).accordion({
+    /* 컨텐츠에 맞게 accodion의 높이를 조절하는 옵션을 사용 -- default 값은 fill */ 
+    	heightStyle:'content'
+    });
+  		
+  		
+	// ------------ 비동기 연결
+		  
+	//1. h3 태그를 클릭
+	$('#accordion h3').click(function () {
+		var text = $(this).text();
+		//alert(text);
+	
+		
+	//2. 비동기 시작 (2번 일어나야함)
+		if(text=="여신강림"){
+			$.ajax({
+				type:'get',
+				url:'subject.jsp',
+				
+				success:function(resultdata){
+					$('#subject').html(resultdata);
+				}
+			});//ajax
+			
+		}else if(text=="연애혁명"){
+			$.ajax({
+				type:'get',
+				url:'itcom.jsp',
+				
+				success:function(resultdata){
+					$('#itcom').html(resultdata);
+				}
+			}); //ajax
+		}
+	}); //click	
+	
+	// 버튼클릭
+	$('#createSection').click(function () {
+		var footercontent = "<h3>연놈</h3><div>중2 여름, 가지 말라는 말도 좋아했다는 말도 하지 못한 채 보낸 그녀가 3년 만에 나타났다. 지나버린 시간과 마주한 소년 그리고 소녀의 이야기 </div>"; 
+		
+	
+	// 붙이면서 버튼을 없앤다 -- remove()
+		$(this).remove();
+	
+	// 이것을 붙인다 -- append()
+	// 동적으로 아코디언을 생성할 떄는 이전 아코디언을 완전히 다 삭제한 후 다시 어코디언을 부여해야한다. -- destroy 사용
+		$('#accordion').append(footercontent).accordion('destroy').accordion({
+			heightStyle:'content' // 새로 아코디언이 부여되기 때문에 다시 값을 줘야한다.
+		});
+	});
+  });
+
+  </script>
+</head>
+<body>
+ 
+<div id="accordion">
+	<h3>윈드브레이커</h3> <!-- 이것이 하나 접히는 session -->
+	<div>
+		혼자서 자전거를 즐겨타던 모범생 조자현.<br/>
+		원치 않게 자전거 크루의 일에 자꾸 휘말리게 되는데...<br/>
+		자유를 꿈꾸는 청춘들의 스트릿라이딩 드라마!<br/>
+	</div>
+	
+	<h3>여신강림</h3>
+	<div id ="subject">
+		네웹 대표 글로벌 인기작! 주경, 수호, 서준.<br/>
+		세 청춘의 두근두근 눈호강 로맨스~♡ <br/>
+		메이크업으로 여신이 된 주경이는 꿈과 사랑을 이룰 수 있을까?<br/>
+	</div>
+	
+	<h3>연애혁명</h3> 
+	<div id ="itcom">
+		평범하면서 금사빠인 고등학생 순정남 공주영은<br/>
+		까칠하고 차가운 여학생 왕자림을 보고 사랑에 빠져버린다.<br/>
+		너무 다른 둘, 괜찮을까?<br/>
+	</div>
+</div>
+
+<hr>
+<input type="button" value="Create Section addction" id="createSection">
+ 
+</body>
+</html>
