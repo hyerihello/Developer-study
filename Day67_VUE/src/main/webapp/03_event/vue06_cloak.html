@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 
+	v-cloak 디렉티브
+	:: 
+	자바 스크립트의 로딩이 끝나기 전까지
+	즉, VueModel에서 동적으로 받아온 데이터를 화면에 랜더링하기 전까지
+	화면에 남아있는 Vue문법이 노출되지 않도록 가려주는 역할을 한다.
+	해당 부분을 display:none 으로 설정하는데 v-cloak디렉티브 문법을 적용한다.
+
+ -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style type="text/css">
+	[v-cloak] {display: none;} 
+</style>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<h2 v-cloak>{{title}}</h2>
+	</div>
+	
+	<script type="text/javascript">
+	setTimeout(() => {
+		new Vue({
+			el:'#app',
+			data:{title:"안녕하세요"}
+		});
+	}, 2000); //2초뒤에 {{}}안에 데이터로 랜더링이 진행된다
+
+	</script>
+</body>
+</html>

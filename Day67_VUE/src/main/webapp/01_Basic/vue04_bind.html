@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> v-bind :: 속성에 해당하는 값들을 모델로 연결하는 기법 </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+	$(function () {
+		var model = {
+				message1:"Mustache Expression 으로 출력하기",
+				message2:"<h2> Directive Expression 으로 출력하기 </h2>",
+				message3:"<h2> Directive Expression 으로 출력하기",
+				
+				// v-bind 
+				prop1:"center", //css 속성 연결
+				prop2:"http://sample.bmaster.kro.kr/photos/61.jpg", //img src 속성 연결
+				
+				title:"Hello V-MODEL!!!"
+		}
+		new Vue ({
+			el: '#app',
+			data:model
+		});
+	});
+</script>
+</head>
+
+
+<body>
+	<div id="app">
+		<H1>{{title}}</H1>
+		Greet Message : <input type="text" name="greet" v-model='title'>
+		<!-- v-model :: 단방향 데이터 흐름기술이 → 양방향 데이터 기술로 변함-->
+		
+		<h2>{{message1}}</h2>
+		<h2 v-text="message2"></h2> <!-- 태그표시 있음 -->
+		<h2 v-html="message3"></h2> <!-- h2 태그표시 없음 -->
+		<h3 :align="prop1"> 안녕하세요, 가운데 정렬입니다 </h3> <!-- 이 부분을 정렬해 보자 -->
+		<img alt="" :src="prop2">
+		
+		<!-- 
+			1. html 문법 :: <h3 align="center"> 안녕하세요, 가운데 정렬입니다 </h3>
+			2. v-bind 문법 :: 
+								v-bind:align="prop1" 를
+									  :align="prop1" 이렇게 사용한다.
+		 -->
+	</div>
+</body>
+</html>

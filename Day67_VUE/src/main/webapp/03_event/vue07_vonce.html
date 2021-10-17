@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!-- 
+	v-once
+	::
+	해당 엘리먼트를 단 한번만 랜더링 한다는 뜻
+	이 문법이 어떤 경우에 사용되는지 간략히 정리
+	
+	정적인 엘리먼트를 처리할 때 사용된다.
+	이 부분은 랜더링이 단 한번만 진행된다.
+ -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+	<h2 v-once>{{'초기값 : ' + count}}</h2>
+	<h2>{{'증가된 값 : '+ count}}</h2>
+	<button @click="count++">+</button>
+</div>
+
+<script type="text/javascript">
+	new Vue({
+		el:'#app',
+		data:{
+			count:1
+		}
+		
+	});
+
+</script>
+</body>
+</html>

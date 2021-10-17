@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+	<h3><b>다음 중식 음식 메뉴입니다.<br/> 좋아하시는 메뉴들을 있는대로 고르세요</b></h3>
+	<input type="checkbox" name="menu" value="짜장면" v-model="menu">짜장면
+	<input type="checkbox" name="menu" value="탕수육" v-model="menu">탕수육
+	<input type="checkbox" name="menu" value="팔보채" v-model="menu">팔보채
+	<input type="checkbox" name="menu" value="짬뽕" v-model="menu">짬뽕
+	<input type="checkbox" name="menu" value="난자완스" v-model="menu">난자완스
+	<input type="checkbox" name="menu" value="울면" v-model="menu">울면
+	<hr>
+	<h4> ============= 선택한 메뉴들 입니다 ============== </h4>
+	<table id="list">
+		<thead>
+			<tr>
+				<th>번 호</th><th>메뉴 이름</th><th>상점 이름</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr v-for="(m, index) in menu"> <!-- 메뉴, 인덱스 같이 뿌리기 -->
+				<td>{{index+1}}</td>
+				<td>{{m}}</td>
+				<td>KERY Chinese restaurant</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+
+
+<script>
+	var app = new Vue({
+		el:'#app',
+		data:{
+			menu:[] // 초기화, 빈메뉴, 체크박스는 list이기 때문에
+		}
+	});
+
+</script>
+</body>
+</html>
+
+
+

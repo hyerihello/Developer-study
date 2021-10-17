@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MVVM pattern</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- view port -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> <!-- vue.cdn -->
+</head>
+<body>
+<!-- // 1.화면구성 (V :: 인트로화면, 결과페이지)-->
+	<div id="app">
+		<h2>{{message}}</h2>  <!-- 1. Mustache Expression : 데이터 적용하는 렌더링-->
+	</div>
+
+<!-- vue 에서는 script를 아래에 쓴다. 위에 사용하려면 jQuery 사용해야한다 -->
+
+<script type="text/javascript">
+//2. 데이터모델 (M :: 정적인데이터, 동적인데이터)
+	var model = {message:"Vue.js START!!"} //message란 이름으로 Vue.js START라는 값을 model에 바인딩 시킴
+
+//3. 뷰모델 VueModel (VM :: 화면(1)에 데이터(2)를 연결하는 역할 -- Controller :: 화면에 서버를 연결하는 역할)
+	new Vue({ // 객체, 속성이 존재한다. (el : 어느영역, data : 데이터)
+		
+		//화면 부분중에서 어느 영역에 적용 될지를 지정하는 속성
+		el:'#app',
+		
+		//el에 적용된 화면에 출력할 데이터 정보를 지정하는 속성,
+		data:model // 정적인데이터 즉 모델을 바인딩하는 문법
+	});
+	
+Vue.config.devtools=true;
+
+</script>	
+</body>
+</html>

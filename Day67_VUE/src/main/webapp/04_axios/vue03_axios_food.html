@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Vue 비동기 기술 :: AXIOS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style type="text/css">
+	body{ background-color: #ffffff;}
+	#second>h2{ margin: 0 auto; text-align: center; border: 1px #ffb319; border-collapse: collapse;}
+	#tid{ border: 1px solid #ffb319; margin: 0 auto; text-align: center; border-collapse: collapse;}
+	td{ border: 1px solid #ff6666;}
+
+</style>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script> <!-- 반드시추가! -->
+
+</head>
+<body>
+<div id="second">
+	<h2>KERY SAFE FOOD</h2>
+	<p></p>
+</div>
+
+<div id = "app">
+
+	<section v-if="errored"> <!-- errored가 true라면 -->
+		<!-- axios 결과 에러가 나면 이 부분이 보여짐  -->
+		<p> Error In Axios Transport....</p>
+	</section>
+	
+	<section v-else> <!-- v-if가 아니라면 table이 보여진다 -->
+	
+		<!-- finally :: 로딩된 상태부분 -->
+		<div v-if="loading">Loading...</div><!-- 처음 loading 중이면 보여지고 비동기 끝나면 안보임 -->
+		
+		<table id="tid"> <!-- json  영역 -->
+			<thead>
+				<tr>
+					<th>분류</th><th>이름</th><th>이미지</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="food in foods" style="border: 1px solid #ff6666;">
+					<td>{{food.productGb}}</td>
+					<td>{{food.prdlstNm}}</td>
+					<td><img :src="food.imgurl1" width="60px" height="60px"></td><!-- v-bind -->
+				</tr>
+			</tbody>	
+		</table>
+	</section>
+</div>
+
+<script type="text/javascript">
+	new Vue({
+		el:'#app',
+	// data:{} 정적인 데이터 바인딩
+	// data(){} 동적인 데이터 바인딩
+		data(){
+			return{
+				foods:null, // json 의 key, value는 객체이기 때문에 초기화를 null로 줌
+				errored:false, //에러가 나지 않음
+				loading:true // 로딩이 되고 있다
+			}
+		},
+		
+	// 비동기 :: axios 기술 
+		mounted(){ //mounted 가 호출될 때 비동기 적용하겠다.
+			axios
+			.get("./food.json") // 사이트 연결해서 data 받아오는 곳
+			// ex) axios.get("http://203.123.108.24:8899/food") :: 다른서버
+			.then(response=>(this.foods = response.data)) //응답받은 데이터를 return 의  food 객체로 리턴
+			.catch(error=>{
+				console.log(error); //에러가 나면 켜지는 곳!
+				this.errored = true; // vue 속성값을 다르게 할당
+			})
+			.finally(()=>this.loading=false) // 비동기 서버와의 연결에 있어서 모든 로딩이 끝났음을 알린다.
+		}
+	})
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 알고리즘 구현 결과를 속성 값으로 접근 :: computed</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id = "app">
+	<input type="text" v-model="num"><br/>
+	<!-- 1. {{}} 에서 method 는 ()를 붙여야한다, v-text도 마찬가지 -->
+	<!-- 1부터 입력된 수까지 총 합 :: <span>{{sum()}}</span>  -->
+	
+	<!-- 2. {{}} 에서 computed는 ()를 제외해야함 -->
+	1부터 입력된 수까지 총 합 :: <span>{{sum}}</span> 
+	
+</div>
+
+<script type="text/javascript">
+
+	// 1. method
+/* 	new Vue({
+		el:'#app',
+		data:{num:0}, // v-model="num" 이것이 있다는 얘기는 data:{num:0} 바인딩 되어야 한다는 말
+		methods:{ //알고리즘을 돌리려면 methods 기능이 있어야함
+			sum:function(){ // == sum(){} 이랑 같음
+				var n = Number(this.num);
+				if(Number.isNaN(n) || n < 1) return 0; //문자이거나 음수 넣지말자
+				return((1+n)*n)/2;
+			}
+		}
+		
+	}); */
+	
+	// 2. computed
+	new Vue({
+		el:'#app',
+		data:{num:0}, // v-model="num" 이것이 있다는 얘기는 data:{num:0} 바인딩 되어야 한다는 말
+		computed:{ 
+			sum(){
+				var n = Number(this.num);
+				if(Number.isNaN(n) || n < 1) return 0; //문자이거나 음수 넣지말자
+				return((1+n)*n)/2;
+			}
+		}
+		
+	});
+
+</script>
+</body>
+</html>

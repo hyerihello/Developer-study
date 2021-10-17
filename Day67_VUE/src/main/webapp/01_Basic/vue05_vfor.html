@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> v-for :: 일종의 for문, 데이터를 여러개 받아와서 한번에 출력할 수 있다.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+<div id = "app">
+	<ul>
+		<li v-for="n in numbers">{{n}}</li>
+	</ul>
+	<table border="2">
+		<tr>
+			<th>이름</th><th>나이</th>
+		</tr>
+		<!-- <tr v-for="p in people"> -->
+		<tr v-for="p in people" v-if="p.age>=50">
+			<td>{{p.name}}</td>
+			<td>{{p.age}}</td>
+		</tr>
+	</table>
+</div>
+</body>
+
+
+<script type="text/javascript">
+	var app = new Vue({
+		el:'#app',
+		data:{ //정적인 데이터 바인딩
+			numbers:[1,2,3,4,5,6,7], // 여러 개의 데이터는 배열 :: [], 단순한 값--객체 아님 (기본형)
+			people:[
+				{ //json 형식 == 객체, json의 여러개는 == list (class data type)
+					name:'이순신',
+					age:45
+				},
+				{
+					name:'강감찬',
+					age:55
+				},
+				{
+					name:'을지문덕',
+					age:50
+				}
+				
+			]
+			
+		}
+	});
+
+</script>
+</html>

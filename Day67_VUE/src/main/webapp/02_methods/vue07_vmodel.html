@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>v-if, v-for, v-model 사용하기</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+
+<div id = "app">
+	<label>베스트 셀러 누적 수로 찾기</label>
+	<input type = "number" name="number" v-model="count"> 
+	<!-- v-model :: 양방향 -->
+	<ul>
+		<li v-for="(book, index) in books" v-if="book.count==count">
+			{{index+1}}, {{book.name}}, {{book.count}} 번 누적되었습니다. 
+		</li>
+	</ul>
+</div>
+
+
+<script type="text/javascript">
+	var app = new Vue({
+		el:'#app',
+		data:{
+			count:0, //v-model, 숫자에 대한 default값이기 때문에 초기값을 0으로줌
+			books:[
+				{name:'달러구트 꿈 백화점 2',count:6},
+				{name:'달러구트 꿈 백화점 1',count:6},
+				{name:'불편한 편의점',count:5},
+				{name:'미드나잇 라이브러리',count:3}
+			]
+		}
+	});
+
+</script>
+</body>
+</html>

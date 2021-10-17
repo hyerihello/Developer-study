@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	body{ background-color: #ffffff;}
+	#second>h2{ margin: 0 auto; text-align: center; border: 1px #ffb319; border-collapse: collapse;}
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- axios cdn 추가 -->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+
+<body>
+<div id = "second">
+	<h2>National Flags</h2>
+</div>
+
+<div id="app">
+	<!-- 조건부 랜더링 -->
+	<section v-if="errored">
+		<p>Error in Axios...</p>
+	</section>
+	
+	<section v-else>
+	<ul>
+		<li v-for="flag in flags">
+			<span v-html="flag.name"></span>
+			<img :src="flag.flag">
+		</li>
+	</ul>
+	</section>
+</div>
+
+<script type="text/javascript">
+	new Vue({
+		el:'#app',
+		data(){
+			return{
+				flags:null,
+				errored:false,
+				loading:true
+			}
+		},
+		mounted(){
+			// 서버라 가정하고 flags.json 데이터로 요청을 한다.
+			// 응답받은 결과를 app영역에 잘 랜더링 한다.
+			// errored와 loading도 catch, finally 부분과 잘 연결해서 화면 영역에 추가한다.
+			// 마지막으로 필요한 css처리는 해서 결과 보도록 하자.
+			axios
+			.get("./flags.json") 
+			.then(response=>(this.flags = response.data.nationalflags)) //json 파일을 열어서 안에 묶여있는지 봐야한다.
+			.catch(error=>{
+				console.log(error);
+				this.errored = true; 
+			})
+			.finally(()=>this.loading=false)
+		}
+	});
+</script>
+</body>
+</html>

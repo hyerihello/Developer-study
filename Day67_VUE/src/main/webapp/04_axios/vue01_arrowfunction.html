@@ -1,0 +1,54 @@
+<!-- 
+
+	ES6(ECMA 2015)에서 추가된 화살표 함수
+	1) arrow function
+	2) let, const 사용법
+	3) Grave Accent ` ` 
+	-------------------
+	4) eslint, babel 
+
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script type="text/javascript">
+	//익명함수 선언법
+	let func1 = function(){
+		console.log('익명함수 func1 -- 로컬변수로 지정함');
+	}
+	func1(); //순차적으로 메모리에 올라가기 때문에 아래에 호출해야함
+	
+	
+	//화살표 함수 :: function 이라는 것을 사용하지 않음
+	func1 = ()=>{
+		console.log('화살표 함수 func1  ');
+	}
+	func1();
+	
+	//=========================================================
+	
+	// 익명함수 (argument 포함)
+ 	let func2 = function (num) {
+		console.log('익명함수 func2', num);
+	}
+	func2(200);
+	
+	
+	// 화살표 함수 (argument 포함)
+	func2 = (num) => {
+		console.log('화살표함수 fun2' , num);
+	}
+	func2(440);
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 
+	이벤트
+	1) 클릭 이벤트
+	2) 키 이벤트
+	3) INPUT 이벤트
+	4) submit 이벤트
+ -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+	<form action="vue07_vonce.html" @submit.prevent="datacheck">
+		아이디<input type="text" id="id" v-model="id" placeholder="아이디를 입력">
+		<button @click="sendId">결과보기</button>
+		<label><input @keyup.enter="submit">키엔터</label> <!-- 추가 :: 엔터누르면 이벤트 발생 -->
+	</form>
+</div>
+
+<script type="text/javascript">
+	new Vue({
+		el:'#app',
+		data:{
+			id:''
+		},
+		methods:{
+			sendId(){
+				alert(this.id);
+			},
+			datacheck(){
+				//if(this.id=="")
+				alert(document.getElementById("id").getAttribute("placeholder"));
+			}
+		}
+	});
+</script>
+</body>
+</html>

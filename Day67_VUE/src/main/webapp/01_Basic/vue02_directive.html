@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+<!-- div :: 화면영역 -->
+<div id = "app">
+	<!-- 1. Mustache Expression :: Vue Model 에 바인딩된 데이터를 출력하는 문법-->
+	<div>{{title}}</div>
+
+	<!-- 2. Directive Expression ::
+	
+		 v-text는 jquery의 text() 함수와 동일
+		 v-html은 jquery의 html() 함수와 동일
+	 -->
+	<div v-text="title"></div>
+	<div v-html="title"></div>
+
+</div>
+
+<script>
+	var model = {title:'<h2> Vue Test </h2>'} // 데이터 받아오는 방법
+	var app = new Vue({ // Vue영역 :: controller 역할 
+		el:'#app',
+		data:model
+	});	
+</script>
+</body>
+</html>

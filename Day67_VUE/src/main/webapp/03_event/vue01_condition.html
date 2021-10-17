@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>v-if | v-else-if | v-else</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id = "app">
+	<div v-html="title"></div>
+	<input type="text" v-model="grade">
+	<div v-if="grade=='A'"><h3>v-if 실행 :: A grade</h3></div>
+	<div v-else-if="grade=='B'"><h3>v-else-if 실행 :: B grade</h3></div>
+	<div v-else><h3>v-else 실행 :: Try Again</h3></div> <!-- 위 2개가 아니면 else가 출력 -->
+</div>
+
+<script type="text/javascript">
+	var app = new Vue({
+		el:'#app',
+		data:{
+			title:'Banana',
+			grade:'A'
+		}
+	});
+
+</script>
+</body>
+</html>

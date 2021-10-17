@@ -1,0 +1,69 @@
+<!-- 
+
+
+	-- 1.
+		정적인 모델을 지정
+		데이터에 이름, 나이, 사는 곳에 관한 정보를 담을 수 있는 모델을 만든다
+	
+	-- 2.
+		app 라고 지정한 화면에 모델에 지정한 데이터의 내용이
+		table형식으로 출력되도록 한다.
+	
+		* 출력조건
+		1) Mustache Expression :: {{}}
+		2) Directive Expression :: v-text | v-html
+	
+	-- 3.
+		모든 컨텐츠가 메모리에 로딩된 다음 script 부분이 가동 되도록 한다. (jQuery사용)
+
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script><!-- 3. 하려면 jquery 사용하면 된다. -->
+
+<!-- Vue, data 영역 :: jquery를 사용했기 때문에 아래 모든 컨텐츠 메모리에 로딩된 후 script 부분 가동된다.-->
+<script type="text/javascript">
+	$(function(){
+		var person = {
+				name:'James',
+				age:77,
+				address:'NY'
+		}
+		var app = new Vue({
+			el:'#app',
+			data:person
+		})
+	});
+</script>
+</head>
+
+<!-- 화면 영역 -->
+<body>
+<div id="app">
+	<table border="1">
+	<caption>Vue Example</caption>
+	<p>
+	<thead>
+		<tr>
+			<th>NAME</th><th>AGE</th><th>ADDRESS</th>
+		</tr>
+	</thead>
+	
+	<tbody>
+		<tr>
+			<td>{{name}}</td>
+			<td v-text="age"></td>
+			<td v-html="address"></td>
+		</tr>
+	</tbody>
+	
+	</table>
+</div>
+</body>
+</html>

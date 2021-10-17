@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Vue Css -->
+
+<style type="text/css">
+	#flag_section{
+		width: 800px;
+		height:200px;
+		margin: 0 auto; /* margin 값을 0 auth로 하려면 width 를 %로 주지말고 px값으로 정확하게 해줘야함*/
+		padding: 20px;
+		text-align: center;
+		font-size: 14px;
+	}
+	#tid{
+		width:600px;
+		margin: 0 auto;
+		
+	}
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+<div id="flag_section">
+	<h2>National Flags</h2>
+	<template v-for="flag in flags">
+		<label><span>{{flag.name}}</span></label>
+		<input type="text" :value="flag.korname">&nbsp;&nbsp;&nbsp;&nbsp;
+		<img :src="flag.flag">
+		<br/>
+	</template>
+</div>
+
+<script type="text/javascript">
+	var model = {
+			flags:[
+				{
+					name:'Ghana',
+					korname:'가나',
+					flag:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Flag_of_Ghana.svg/44px-Flag_of_Ghana.svg.png'
+				},
+				{
+					name:'south_Korea',
+					korname:'대한민국',
+					flag:'https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/44px-Flag_of_South_Korea.svg.png'
+				}
+			]
+	}
+	new Vue({
+		el:'#flag_section',
+		data:model
+	});
+
+</script>
+</body>
+</html>
