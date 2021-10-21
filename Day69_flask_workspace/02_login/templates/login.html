@@ -1,0 +1,24 @@
+<!-- html:5 자동완성 누르면 화면 만들어짐-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="login" method="GET">
+        <!--
+            defalut :: get, server인데 같은 domain 을 사용한다 = local
+            http://127.0.0.1:7788/login 으로 쓰지 않는 이유는 같은 domain이기 때문에 !!
+        -->
+        <!--live server 이용 -->
+        <p>Enter ID : <input type="text" name="user_id"></p>
+        <p>Enter PASSWORD : <input type="password" name="user_pw"></p>
+        <p><input type="submit" value="LOGIN"></p>
+    </form>
+</body>
+
+</html>

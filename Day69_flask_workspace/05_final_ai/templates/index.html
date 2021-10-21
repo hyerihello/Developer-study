@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../static/css/style.css">
+
+</head>
+
+<body>
+    <div class="login">
+        <h1>Predict IRIS Class</h1>
+        <form action="predict" method="post">
+            <!--required="required" 입력값이 요청되도록-->
+            <input type="text" name="sepal_length" placeholder="Sepal_Length(cm)" required="required">
+            <input type="text" name="sepal_width" placeholder="Sepal_Width(cm)" required="required">
+            <input type="text" name="petal_length" placeholder="Petal_Length(cm)" required="required">
+            <input type="text" name="petal_width" placeholder="Petal_Width(cm)" required="required">
+            <!-- submit :: action 의 페이지영역을 가지고 올때 모든 form의 값을 가져옴 -->
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        </form>
+        <br/>
+        <br/> {{prediction_text}}
+        <!-- 예측값이 이쪽으로 출력된다.-->
+    </div>
+</body>
+
+</html>
